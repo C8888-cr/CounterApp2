@@ -1,4 +1,8 @@
-class CounterViewModel {
+import com.rickclephas.kmp.observableviewmodel.ViewModel
+import com.rickclephas.kmp.observableviewmodel.MutableStateFlow
+import com.rickclephas.kmp.observableviewmodel.stateIn
+
+open class CounterViewModel: ViewModel() {
     // Erzeuge einen CoroutineScope, der an die Lebenszeit des ViewModels gebunden ist
     private val viewModelScope = CoroutineScope(Dispatchers.Main)
 
