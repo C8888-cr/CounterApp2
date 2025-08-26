@@ -26,8 +26,11 @@ kotlin {
     }
     
     sourceSets {
+        all {
+            languageSettings.optIn("kotlinx.cinterop.ExperimentalForeignApi")
+        }
         commonMain.dependencies {
-            // put your Multiplatform dependencies here
+            api("com.rickclephas.kmp:kmp-observableviewmodel-core:1.0.0-BETA-13")
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
