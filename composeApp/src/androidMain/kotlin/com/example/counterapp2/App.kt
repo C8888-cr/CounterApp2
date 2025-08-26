@@ -20,30 +20,36 @@ import counterapp2.composeapp.generated.resources.Res
 import counterapp2.composeapp.generated.resources.compose_multiplatform
 
 @Composable
-@Preview
-fun App() {
+fun App(viewModel: CounterViewModel = viewModel()) {
     MaterialTheme {
-        var showContent by remember { mutableStateOf(false) }
-        Column(
-            modifier = Modifier
-                .background(MaterialTheme.colorScheme.primaryContainer)
-                .safeContentPadding()
-                .fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            Button(onClick = { showContent = !showContent }) {
-                Text("Click me!")
-            }
-            AnimatedVisibility(showContent) {
-                val greeting = remember { Greeting().greet() }
-                Column(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                ) {
-                    Image(painterResource(Res.drawable.compose_multiplatform), null)
-                    Text("Compose: $greeting")
-                }
-            }
+        // State vom ViewModel beobachten. Compose reagiert automatisch auf Änderungen.
+        val uiState by viewModel.uiState.collectAsState()
+
+        CounterScreen(
+            state = uiState,
+            onIncrement = { viewModel.increment() },
+            onDecrement = { viewModel.decrement() },
+            onIncrementAsync = { viewModel.incrementAsync() }
+        )
+    }
+}
+
+@Composable
+fun CounterScreen(
+    state: CounterState,
+    onIncrement: () -> Unit,
+    onDecrement: () -> Unit,
+    onIncrementAsync: () -> Unit
+) {
+    Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+        Text("Count: ${state.count}")
+        if (state.isLoading) {
+            CircularProgressIndicator()
         }
+        Row {
+            Button(onClick = onIncrement, enabled = !state.isLoading) { Text("+") }
+            Button(onClick = onDecrement, enabled = !state.isLoading) { Text("-") }
+        }
+        Button(onClick = onIncrementAsync, enabled = !state.isLoading) { Text("Increment Async") }
     }
 }
