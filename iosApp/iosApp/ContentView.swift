@@ -1,33 +1,38 @@
 import SwiftUI
 import Shared
+import KMPObservableViewModelSwiftUI
 
 struct ContentView: View {
-    @State private var showContent = false
-    var body: some View {
-        VStack {
-            Button("Click me!") {
-                withAnimation {
-                    showContent = !showContent
-                }
-            }
+    // SwiftUI kümmert sich um die Lebenszeit dieses Objekts
+    @StateViewModel var viewModel = CounterViewModel()
 
-            if showContent {
-                VStack(spacing: 16) {
-                    Image(systemName: "swift")
-                        .font(.system(size: 200))
-                        .foregroundColor(.accentColor)
-                    Text("SwiftUI: \(Greeting().greet())")
-                }
-                .transition(.move(edge: .top).combined(with: .opacity))
-            }
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .padding()
+    var body: some View {
+        CounterScreen(
+            state: viewModel.uiState,
+            onIncrement: viewModel.increment,
+            onDecrement: viewModel.decrement,
+            onIncrementAsync: viewModel.incrementAsync
+        )
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+struct CounterScreen: View {
+    var state: CounterState
+    var onIncrement: () -> Void
+    var onDecrement: () -> Void
+    var onIncrementAsync: () -> Void
+
+    var body: some View {
+        VStack(spacing: 20) {
+            Text("Count: \(state.count)")
+            if state.isLoading {
+                ProgressView()
+            }
+            HStack {
+                Button("+", action: onIncrement).disabled(state.isLoading)
+                Button("-", action: onDecrement).disabled(state.isLoading)
+            }
+            Button("Increment Async", action: onIncrementAsync).disabled(state.isLoading)
+        }
     }
 }
