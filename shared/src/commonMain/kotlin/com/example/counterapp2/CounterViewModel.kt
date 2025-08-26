@@ -1,10 +1,11 @@
-import com.rickclephas.kmp.observableviewmodel.ViewModel
 import com.rickclephas.kmp.observableviewmodel.MutableStateFlow
-import com.rickclephas.kmp.observableviewmodel.stateIn
+import com.rickclephas.kmp.observableviewmodel.ViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.update
 
 open class CounterViewModel: ViewModel() {
     // Erzeuge einen CoroutineScope, der an die Lebenszeit des ViewModels gebunden ist
-    private val viewModelScope = CoroutineScope(Dispatchers.Main)
+    override val viewModelScope = CoroutineScope(Dispatchers.Main)
 
     // Privater, veränderlicher StateFlow für interne Updates
     private val _uiState = MutableStateFlow(CounterState())
