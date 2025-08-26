@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		56E882572E5DD775005264E4 /* KMPObservableViewModelCore in Frameworks */ = {isa = PBXBuildFile; productRef = 56E882562E5DD775005264E4 /* KMPObservableViewModelCore */; };
 		56E882592E5DD775005264E4 /* KMPObservableViewModelSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 56E882582E5DD775005264E4 /* KMPObservableViewModelSwiftUI */; };
+		56E8826E2E5DE309005264E4 /* KMPNativeCoroutinesAsync in Frameworks */ = {isa = PBXBuildFile; productRef = 56E8826D2E5DE309005264E4 /* KMPNativeCoroutinesAsync */; };
+		56E882702E5DE309005264E4 /* KMPNativeCoroutinesCombine in Frameworks */ = {isa = PBXBuildFile; productRef = 56E8826F2E5DE309005264E4 /* KMPNativeCoroutinesCombine */; };
+		56E882722E5DE309005264E4 /* KMPNativeCoroutinesCore in Frameworks */ = {isa = PBXBuildFile; productRef = 56E882712E5DE309005264E4 /* KMPNativeCoroutinesCore */; };
+		56E882742E5DE309005264E4 /* KMPNativeCoroutinesRxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 56E882732E5DE309005264E4 /* KMPNativeCoroutinesRxSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,7 +51,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				56E882572E5DD775005264E4 /* KMPObservableViewModelCore in Frameworks */,
+				56E882722E5DE309005264E4 /* KMPNativeCoroutinesCore in Frameworks */,
+				56E882702E5DE309005264E4 /* KMPNativeCoroutinesCombine in Frameworks */,
+				56E882742E5DE309005264E4 /* KMPNativeCoroutinesRxSwift in Frameworks */,
 				56E882592E5DD775005264E4 /* KMPObservableViewModelSwiftUI in Frameworks */,
+				56E8826E2E5DE309005264E4 /* KMPNativeCoroutinesAsync in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +102,10 @@
 			packageProductDependencies = (
 				56E882562E5DD775005264E4 /* KMPObservableViewModelCore */,
 				56E882582E5DD775005264E4 /* KMPObservableViewModelSwiftUI */,
+				56E8826D2E5DE309005264E4 /* KMPNativeCoroutinesAsync */,
+				56E8826F2E5DE309005264E4 /* KMPNativeCoroutinesCombine */,
+				56E882712E5DE309005264E4 /* KMPNativeCoroutinesCore */,
+				56E882732E5DE309005264E4 /* KMPNativeCoroutinesRxSwift */,
 			);
 			productName = iosApp;
 			productReference = B9DA97B12DC1472C00A4DA20 /* CounterApp2.app */;
@@ -125,6 +137,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				56E882552E5DD775005264E4 /* XCRemoteSwiftPackageReference "KMP-ObservableViewModel" */,
+				56E8826C2E5DE309005264E4 /* XCRemoteSwiftPackageReference "KMP-NativeCoroutines" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B9DA97B22DC1472C00A4DA20 /* Products */;
@@ -396,6 +409,14 @@
 				kind = branch;
 			};
 		};
+		56E8826C2E5DE309005264E4 /* XCRemoteSwiftPackageReference "KMP-NativeCoroutines" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rickclephas/KMP-NativeCoroutines";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -408,6 +429,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 56E882552E5DD775005264E4 /* XCRemoteSwiftPackageReference "KMP-ObservableViewModel" */;
 			productName = KMPObservableViewModelSwiftUI;
+		};
+		56E8826D2E5DE309005264E4 /* KMPNativeCoroutinesAsync */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56E8826C2E5DE309005264E4 /* XCRemoteSwiftPackageReference "KMP-NativeCoroutines" */;
+			productName = KMPNativeCoroutinesAsync;
+		};
+		56E8826F2E5DE309005264E4 /* KMPNativeCoroutinesCombine */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56E8826C2E5DE309005264E4 /* XCRemoteSwiftPackageReference "KMP-NativeCoroutines" */;
+			productName = KMPNativeCoroutinesCombine;
+		};
+		56E882712E5DE309005264E4 /* KMPNativeCoroutinesCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56E8826C2E5DE309005264E4 /* XCRemoteSwiftPackageReference "KMP-NativeCoroutines" */;
+			productName = KMPNativeCoroutinesCore;
+		};
+		56E882732E5DE309005264E4 /* KMPNativeCoroutinesRxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56E8826C2E5DE309005264E4 /* XCRemoteSwiftPackageReference "KMP-NativeCoroutines" */;
+			productName = KMPNativeCoroutinesRxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
