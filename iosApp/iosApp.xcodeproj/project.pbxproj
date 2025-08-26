@@ -322,7 +322,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "Configuration iosApp iosApp/ContentView.swift iosApp/iOSApp.swift iosApp/Preview\\ Content";
+				DEVELOPMENT_ASSET_PATHS = "\"$(SRCROOT)/iosApp.xcodeproj\"";
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -354,7 +354,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "Configuration iosApp iosApp/ContentView.swift iosApp/iOSApp.swift iosApp/Preview\\ Content";
+				DEVELOPMENT_ASSET_PATHS = "\"$(SRCROOT)/iosApp.xcodeproj\"";
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
