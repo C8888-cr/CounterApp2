@@ -4,8 +4,10 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
-    id("com.google.devtools.ksp") version "2.2.10-2.0.2"
-    id("com.rickclephas.kmp.nativecoroutines") version "1.0.0-ALPHA-46"
+
+        id("com.google.devtools.ksp") version "2.2.10-2.0.2"
+        id("com.rickclephas.kmp.nativecoroutines") version "1.0.0-ALPHA-46"
+
 }
 
 kotlin {
@@ -30,6 +32,7 @@ kotlin {
     sourceSets {
         all {
             languageSettings.optIn("kotlinx.cinterop.ExperimentalForeignApi")
+            languageSettings.optIn("kotlin.experimental.ExperimentalObjCName")
         }
         commonMain.dependencies {
             api("com.rickclephas.kmp:kmp-observableviewmodel-core:1.0.0-BETA-13")
