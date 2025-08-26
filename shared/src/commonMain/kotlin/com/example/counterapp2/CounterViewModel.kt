@@ -9,6 +9,9 @@ open class CounterViewModel: ViewModel() {
     // Privater, veränderlicher StateFlow für interne Updates
     private val _uiState = MutableStateFlow(CounterState())
     // Öffentlicher, nur lesbarer StateFlow für die UI
+
+    //Add NativeCou....
+    @NativeCoroutineState
     val uiState: StateFlow<CounterState> = _uiState.asStateFlow()
 
     fun increment() {
